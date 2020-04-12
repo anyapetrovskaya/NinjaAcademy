@@ -96,22 +96,25 @@ function MissionHandler() {
 	};
 	o.handleGeo = function(pos) {
 		console.log("position");
-		console.log(pos);
+//		console.log(pos);
 		o.log("I know where you are");
 //		o.log("you are at lat: "+pos.coords/latitude+", long: "+pos.coords.longitude);
 //		alert("you are at lat: "+pos.coords/latitude+", long: "+pos.coords.longitude);
 	};
-	o.handleGeoError = function() {
-		console.log("geo error");
-		o.log("geo error");
+	o.handleGeoError = function(err) {
+		let s = `geo ERROR(${err.code}): ${err.message}`;
+		console.log(s);
+		o.log(s);
 	};
-	o.handleGeoNotSupported = function() {
-		o.log("geo not supported");
+	o.geoOpt = {
+		  enableHighAccuracy: true,
+		  timeout: 5000,
+		  maximumAge: 0
 	};
 	o.handleMissionAction = function() {
 		if (!o.selectedMission) return;
 		o.log("calling geo...");
-		navigator.geolocation.getCurrentPosition(o.handleGeo, o.handleGeoError, o.handleGeoNotSupported);
+		navigator.geolocation.getCurrentPosition(o.handleGeo, o.handleGeoError, o.geoOpt);
 	};
 	o.log = function(s) {
 		document.getElementById('errorLog').innerHTML = s;
@@ -128,7 +131,7 @@ function actionClick() {
 }
 
 function reportVersion() {
-	mh.log("version 1");
+	mh.log("version 2");
 };
 
 
