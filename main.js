@@ -98,7 +98,7 @@ function MissionHandler() {
 		console.log("position");
 //		console.log(pos);
 		let crd = pos.coords;
-		o.log("I know where you are .... ${crd.latitude}, ${crd.longitude} up to ${crd.accuracy} meters.");
+		o.log(`I know where you are .... ${crd.latitude}, ${crd.longitude} up to ${crd.accuracy} meters.`);
 //		o.log("you are at lat: "+pos.coords/latitude+", long: "+pos.coords.longitude);
 //		alert("you are at lat: "+pos.coords/latitude+", long: "+pos.coords.longitude);
 	};
@@ -132,7 +132,7 @@ function actionClick() {
 }
 
 function reportVersion() {
-	mh.log("version 3");
+	mh.log("version 4");
 };
 
 
