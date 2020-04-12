@@ -97,12 +97,13 @@ function MissionHandler() {
 	o.handleGeo = function(pos) {
 		console.log("position");
 //		console.log(pos);
-		o.log("I know where you are");
+		let crd = pos.coords;
+		o.log("I know where you are .... ${crd.latitude}, ${crd.longitude} up to ${crd.accuracy} meters.");
 //		o.log("you are at lat: "+pos.coords/latitude+", long: "+pos.coords.longitude);
 //		alert("you are at lat: "+pos.coords/latitude+", long: "+pos.coords.longitude);
 	};
 	o.handleGeoError = function(err) {
-		let s = `geo ERROR(${err.code}): ${err.message}`;
+		let s = `geo error(${err.code}): ${err.message}`;
 		console.log(s);
 		o.log(s);
 	};
@@ -131,7 +132,7 @@ function actionClick() {
 }
 
 function reportVersion() {
-	mh.log("version 2");
+	mh.log("version 3");
 };
 
 
