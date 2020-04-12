@@ -97,7 +97,8 @@ function MissionHandler() {
 	o.handleGeo = function(pos) {
 		console.log("position");
 		console.log(pos);
-		o.log("you are at lat: "+pos.coords/latitude+", long: "+pos.coords.longitude);
+		o.log("I know where you are");
+//		o.log("you are at lat: "+pos.coords/latitude+", long: "+pos.coords.longitude);
 //		alert("you are at lat: "+pos.coords/latitude+", long: "+pos.coords.longitude);
 	};
 	o.handleGeoError = function() {
@@ -126,8 +127,9 @@ function actionClick() {
 	mh.handleMissionAction();
 }
 
-
-
+function reportVersion() {
+	mh.log("version 1");
+};
 
 
 
