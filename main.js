@@ -97,11 +97,19 @@ function MissionHandler() {
 	o.handleGeo = function(pos) {
 		console.log("position");
 		console.log(pos);
+		alert("you are at lat: "+pos.coords/latitude+", long: "+pos.coords.longitude);
+	};
+	o.handleGeoError = function() {
+		console.log("geo error");
+		alert("geo error");
+	};
+	o.handleGeoNotSupported = function() {
+		alert("geo not supported");
 	};
 	o.handleMissionAction = function() {
 		if (!o.selectedMission) return;
-		alert('done');
-		navigator.geolocation.getCurrentPosition(o.handleGeo);
+		console.log("calling geo");
+		navigator.geolocation.getCurrentPosition(o.handleGeo, o.handleGeoError, o.handleGeoNotSupported);
 	};
 	
 	return o;
