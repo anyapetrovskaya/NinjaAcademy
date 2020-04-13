@@ -102,7 +102,7 @@ function MissionHandler() {
 		o.log(`You are at ${crd.latitude}, ${crd.longitude} up to ${crd.accuracy} meters.`);
 		let mCoord = { lat: 37.345749, lon: -122.070328 };
 		let d = getDistanceFromLatLonInM(mCoord.lat,mCoord.lon,crd.latitude,crd.longitude);
-		o.log('distance ${d} meters with ${crd.accuracy} meters accuracy.');
+		o.log(`distance ${d} meters with ${crd.accuracy} meters accuracy.`);
 	};
 	o.handleGeoError = function(err) {
 		let s = `geo error(${err.code}): ${err.message}`;
@@ -134,7 +134,7 @@ function actionClick() {
 }
 
 function reportVersion() {
-	mh.log("version 5");
+	mh.log("version 6");
 };
 
 
