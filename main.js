@@ -87,7 +87,7 @@ function MissionHandler() {
 	
 	return o;
 }
-var mh = new MissionHandler();
+var mh = undefined;
 function missionClick(mid) {
 	mh.handleMissionClick(mid);
 }
@@ -100,6 +100,7 @@ function reportVersion() {
 };
 
 function init() {
+	mh = new MissionHandler();
 	reportVersion();
 	missionClick('mi1');
 };

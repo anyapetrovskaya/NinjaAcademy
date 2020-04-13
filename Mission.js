@@ -4,10 +4,11 @@ function Mission(params) {
 	var o = new Object();
 	o.init = function(params) {
 		if (!params) return;
-		o.params = params;
+		for (let k of Object.keys(params)) o.params[k] = params[k];
+//		o.params = params;
 	};
 	o.scrollFields = ['mAction', 'mCategory', 'mTitle', 'mDesc', 'mPhoto', 'mDuration', 'mExp'];
-	o.params = {};
+	o.params = { state: 'inProgress' };
 	o.updateScroll = function() {
 		for (let eid of o.scrollFields) o.updateElement(eid);		
 	};
@@ -47,7 +48,7 @@ function AgentMission(params) {
 		}
 		let mCoord = o.params.mCoord; //{ lat: 37.345749, lon: -122.070328 };
 		let d = getDistanceFromLatLonInM(mCoord.lat,mCoord.lon,crd.latitude,crd.longitude);
-		o.log(`distance ${d.toFixed(2)} meters with ${crd.accuracy} meters accuracy.`);
+		o.log(`distance ${d.toFixed(0)} meters with ${crd.accuracy} meters accuracy.`);
 	};
 	o.handleGeoError = function(err) {
 		let s = `geo error(${err.code}): ${err.message}`;
