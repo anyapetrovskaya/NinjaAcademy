@@ -14,6 +14,7 @@ function MissionHandler() {
 			mTitle: 'Locate Secret Hideout',
 			mDetail: 'Ninja Alliance intelligence reports that there is a secret terrorist hideout near your location. Our agents discovered this photo of the hideout. Locate the hideout and report its whereabouts.',
 			mPhoto: 'resources/img/grant-park.png',
+			mCoord: { lat: 37.345749, lon: -122.070328 },
 			mDuration: '15 min',
 			mExp: '2,000 xp',
 			mAction: 'Report'
@@ -98,9 +99,10 @@ function MissionHandler() {
 		console.log("position");
 //		console.log(pos);
 		let crd = pos.coords;
-		o.log(`I know where you are .... ${crd.latitude}, ${crd.longitude} up to ${crd.accuracy} meters.`);
-//		o.log("you are at lat: "+pos.coords/latitude+", long: "+pos.coords.longitude);
-//		alert("you are at lat: "+pos.coords/latitude+", long: "+pos.coords.longitude);
+		o.log(`You are at ${crd.latitude}, ${crd.longitude} up to ${crd.accuracy} meters.`);
+		let mCoord = { lat: 37.345749, lon: -122.070328 };
+		let d = getDistanceFromLatLonInM(mCoord.lat,mCoord.lon,crd.latitude,crd.longitude);
+		o.log('distance ${d} meters with ${crd.accuracy} meters accuracy.');
 	};
 	o.handleGeoError = function(err) {
 		let s = `geo error(${err.code}): ${err.message}`;
@@ -132,7 +134,7 @@ function actionClick() {
 }
 
 function reportVersion() {
-	mh.log("version 4");
+	mh.log("version 5");
 };
 
 
