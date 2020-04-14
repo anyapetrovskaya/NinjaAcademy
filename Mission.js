@@ -1,33 +1,11 @@
 "use strict";
 
 function Mission(params) {
-	var o = new Object();
-	o.init = function(params) {
-		if (!params) return;
-		for (let k of Object.keys(params)) o.params[k] = params[k];
-//		o.params = params;
-	};
-	o.scrollFields = ['mAction', 'mCategory', 'mTitle', 'mDesc', 'mPhoto', 'mDuration', 'mExp'];
-	o.params = { state: 'inProgress' };
-	o.updateScroll = function() {
-		for (let eid of o.scrollFields) o.updateElement(eid);		
-	};
+	var o = new BaseObject(params);
+	o.uiFields = ['mAction', 'mCategory', 'mTitle', 'mDesc', 'mPhoto', 'mDuration', 'mExp'];
+	o.params.state = 'inProgress';
 	o.handleAction = function() { o.log("not implemented"); };	
-	o.updateElement = function(eid) {
-		if (!o.params[eid]) return;
-		let s = o.params[eid];
-		if (o.fieldFormat[eid]) s = eval(o.fieldFormat[eid]);
-		o.setElement(eid, s);
-	};	
-	o.fieldFormat = {
-			mPhoto: "`<img style='vertical-align:top;height:125px;' src='${o.params[eid]}'>`"
-	};
-	o.setElement = function(eid, s) {
-		if (!document.getElementById(eid)) return;
-		document.getElementById(eid).innerHTML = s;
-	};
-	o.log = function(s) { o.setElement('errorLog', s); };
-	o.init(params);
+	o.fieldFormat.mPhoto = "`<img style='vertical-align:top;height:100%;' src='${o.params[eid]}'>`";
 	return o;
 }
 

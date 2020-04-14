@@ -5,10 +5,11 @@ var ui, hud, game;
 
 
 function MissionHandler() {
-	var o = new Object();
+	var o = new BaseObject();
 	o.selectedMission = undefined;
 	o.missions = {
-		mi1: new AgentMission({ 	
+		mi1: new AgentMission({ 
+			mid: 1,
 			mShort: 'Agent: locate secret hideout.',
 			mCategory: 'Agent Mission',
 			mTitle: 'Locate Secret Hideout',
@@ -20,6 +21,7 @@ function MissionHandler() {
 			mAction: 'Report'
 			}),
 		mi2: new Mission({ 	
+			mid: 2,
 			mShort: 'Scholar: sharpen your mind.',
 			mCategory: 'Scholar Mission',
 			mTitle: 'Sharpen Your Mind',
@@ -30,6 +32,7 @@ function MissionHandler() {
 			mAction: 'Finish'
 			}),
 		mi3: new Mission({ 	
+			mid: 3,
 			mShort: 'Operative: dispose of contaminants.',
 			mCategory: 'Operative Mission',
 			mTitle: 'Dispose of Contaminants',
@@ -40,6 +43,7 @@ function MissionHandler() {
 			mAction: 'Finish'
 			}),
 		mi4: new Mission({ 	
+			mid: 4,
 			mShort: 'Survivor: tame silver wolf.',
 			mCategory: 'Survivor Mission',
 			mTitle: 'Tame Silver Wolf',
@@ -50,6 +54,7 @@ function MissionHandler() {
 			mAction: 'Submit'
 		}),
 		mi5: new Mission({ 	
+			mid: 5,
 			mShort: 'Warrior: practice martial arts.',
 			mCategory: 'Warrior Mission',
 			mTitle: 'Practice Martial Arts',
@@ -72,17 +77,13 @@ function MissionHandler() {
 			if (o.selectedMission) document.getElementById(o.selectedMission).style.backgroundColor = '#000000';
 			o.selectedMission = mid;
 			document.getElementById(mid).style.backgroundColor = '#8f8f8f';
-			o.missions[mid].updateScroll();
+			o.missions[mid].updateUi();
 		}
-//		console.log(document.getElementById(mid).style.backgroundColor);
 	};
 	o.handleMissionAction = function() {
 		if (!o.selectedMission) return;
 		if (!o.missions[o.selectedMission]) return;
 		o.missions[o.selectedMission].handleAction();
-	};
-	o.log = function(s) {
-		document.getElementById('errorLog').innerHTML = s;
 	};
 	
 	return o;

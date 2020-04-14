@@ -44,84 +44,74 @@
 		</style>
 	</head>
 	<body onload="init()">
-<!-- 	
-		<script src="GameLogic.js"></script>
-		<script src="UI.js"></script>
- -->
-		<script src="LatLon.js"></script>
+		<script src="BaseObject.js"></script>
+		<script src="Geo.js"></script>
+		<script src="Player.js"></script>
 		<script src="Mission.js"></script>
  		<script src="main.js"></script>
  
- 		<div id='borders' style='position:absolute; top:0px; left:0px; visibility:visible;width:1500px;height:1000px;'>
-	 		<img style='position:absolute;top:0px;left:0px;width:100%;height:20px;' src='resources/0ad/top_bar.png'>
+ 		<div id='borders' style='position:absolute; top:0%; left:0%; visibility:visible;width:100%;height:100%;'>
+	 		<img style='position:absolute;top:0%;left:0%;width:100%;height:3%;' src='resources/0ad/top_bar.png'>
 		</div> 
- 		<div id='hud' style='position:absolute; top:20px; left:0px; visibility:visible;width:100%;height:95%;'>		
-			<div id='playerInfo' style='position:absolute;top:0px;left:0px;width:40%;height:50%;font-size:120%'>
-				<div id='playerPortrait' style='position:absolute;top:0px;left:10px;width:50%;'>
- 					<img style='vertical-align:top;' src='resources/img/girl-ninja-flip.jpg'>
+ 		<div id='hud' style='position:absolute; top:3%; left:0%; visibility:visible;width:100%;height:97%;'>		
+			<div id='playerInfo' style='position:absolute;top:0%;left:0%;width:45%;height:30%;font-size:120%;vertical-align:top;'>
+				<div id='emblem' style='position:absolute;top:0%;left:0%;width:16%;height:100%;'>
+					<img style='vertical-align:middle;width:100%' src='resources/img/emblemTiger4.png'>
+				</div>			
+				<div id='playerPortrait' style='position:absolute;top:0%;left:16%;width:50%;'>
+ 					<img style='vertical-align:middle;width:100%' src='resources/img/girl-ninja-flip.jpg'>
  				</div>
-				<div id='playerStats' style='position:absolute;vertical-align:middle;text-align:left;top:10%;left:40%;width:50%;height:100%'>
-					<div id='playerStatsLabels' style='text-align:right;position:absolute;top:0px;left:0%;width:50%;height:100%'>
-						Name:<br><br>
-						Clan:<br><br>
-						Gold:<br><br>
-					</div>
-					
-					<div id='playerStatsValues' style='text-align:left;position:absolute;top:0;color:#ee0000;left:55%;width:50%;height:100%'>
-						Angel<br><br>
-						Bloodfang<br><br>
-						33,567<br><br>
-					</div>
+				<div id='playerStats' style='position:absolute;vertical-align:middle;text-align:left;top:0%;left:67%;width:33%;height:100%'>
+ 					<table cellpadding='5em'>
+					<tr><td>Name:</td><td  id='alias' style='text-align:left;color:#ee0000;'>Angel</td></tr>
+					<tr><td>Clan:</td><td id='clan' style='text-align:left;color:#ee0000;'>Bloodfang</td></tr>
+					<tr><td>Gold:</td><td id='gold' style='text-align:left;color:#ee0000;'>33,567</td></tr>
+					</table>
 				</div>
 			</div>
 			
-			<div id='clanEmblem' style='position:absolute;top:0px;left:40%;width:100%;height:40%;'>
-				<span id='emblem' style='text-align:center; vertical-align:middle; color:white; height:100%; width:100%;'>
-					<img style='vertical-align:middle;width:250px;height:250px' src='resources/0ad/emblem_athens.png'>
-				</span>			
-			</div>			
 			
 
-			<div id='professions' style='position:absolute;top:0px;right:0px;width:40%;height:50%;font-size:120%;text-align:center;'>
-				<div id='professionsTitle' style='position:absolute;top:0px;left:0px;width:100%;'>
+			<div id='professions' style='position:absolute;top:0%;right:1em;width:40%;height:30%;font-size:120%;text-align:center;'>
+				<div id='professionsTitle' style='position:absolute;top:0%;left:0%;width:100%;'>
  					Professions
  				</div>
-				<div id='professionsBars' style='position:absolute;vertical-align:middle;top:10%;left:0px;width:100%;height:90%'>
-  					<table style='text-align:right;virtical-align:middle;' cellpadding=5px>
-					<tr><td>Agent</td><td>
-						<span style='position:relative;vertical-align:middle;'>
-						<img style='position:absolute;top:0px;left:0px;vertical-align:top;width:30px;height:30px' src='resources/0ad/bar/titlebar_left.png'>
-						<img style='position:absolute;top:0px;left:30px;vertical-align:top;width:300px;height:30px' src='resources/0ad/bar/titlebar_middle.png'>
-						<img style='position:absolute;top:0px;left:330px;vertical-align:top;width:30px;height:30px' src='resources/0ad/bar/titlebar_right.png'>
-						</span>
+				<div id='professionsBars' style='position:absolute;vertical-align:middle;top:1.5em;left:0%;width:100%;height:90%'>
+  					<table style='position:absolute;top:0%;left:0%;text-align:right;virtical-align:middle;width:100%;'>
+					<tr style='position:relative;top:0%;left:0%;text-align:right;virtical-align:middle;width:100%;'>
+					<td style='padding:0.3em;'>Agent</td>
+					<td style='position:relative;top:0%;left:0%;vertical-align:middle;width:100%;'>
+						<img style='position:absolute;top:20%;left:0%;vertical-align:top;width:10%;height:1em' src='resources/0ad/bar/titlebar_left.png'>
+						<img style='position:absolute;top:20%;left:10%;vertical-align:top;width:80%;height:1em' src='resources/0ad/bar/titlebar_middle.png'>
+						<img style='position:absolute;top:20%;left:90%;vertical-align:top;width:10%;height:1em' src='resources/0ad/bar/titlebar_right.png'>
 					</td></tr>
-					<tr><td>Scholar</td><td>
-						<span style='position:relative;vertical-align:middle;'>
-						<img style='position:absolute;top:0px;left:0px;vertical-align:top;width:30px;height:30px' src='resources/0ad/bar/titlebar_left.png'>
-						<img style='position:absolute;top:0px;left:30px;vertical-align:top;width:300px;height:30px' src='resources/0ad/bar/titlebar_middle.png'>
-						<img style='position:absolute;top:0px;left:330px;vertical-align:top;width:30px;height:30px' src='resources/0ad/bar/titlebar_right.png'>
-						</span>
+					<tr style='position:relative;top:0%;left:0%;text-align:right;virtical-align:middle;width:100%;'>
+					<td style='padding:0.3em;'>Scholar</td>
+					<td style='position:relative;top:0%;left:0%;vertical-align:middle;width:100%;'>
+						<img style='position:absolute;top:20%;left:0%;vertical-align:top;width:10%;height:1em' src='resources/0ad/bar/titlebar_left.png'>
+						<img style='position:absolute;top:20%;left:10%;vertical-align:top;width:80%;height:1em' src='resources/0ad/bar/titlebar_middle.png'>
+						<img style='position:absolute;top:20%;left:90%;vertical-align:top;width:10%;height:1em' src='resources/0ad/bar/titlebar_right.png'>
 					</td></tr>
-					<tr><td>Operative</td><td>
-						<span style='position:relative;vertical-align:middle;'>
-						<img style='position:absolute;top:0px;left:0px;vertical-align:top;width:30px;height:30px' src='resources/0ad/bar/titlebar_left.png'>
-						<img style='position:absolute;top:0px;left:30px;vertical-align:top;width:300px;height:30px' src='resources/0ad/bar/titlebar_middle.png'>
-						<img style='position:absolute;top:0px;left:330px;vertical-align:top;width:30px;height:30px' src='resources/0ad/bar/titlebar_right.png'>
-						</span>
+					<tr style='position:relative;top:0%;left:0%;text-align:right;virtical-align:middle;width:100%;'>
+					<td style='padding:0.3em;'>Operative</td>
+					<td style='position:relative;top:0%;left:0%;vertical-align:middle;width:100%;'>
+						<img style='position:absolute;top:20%;left:0%;vertical-align:top;width:10%;height:1em' src='resources/0ad/bar/titlebar_left.png'>
+						<img style='position:absolute;top:20%;left:10%;vertical-align:top;width:80%;height:1em' src='resources/0ad/bar/titlebar_middle.png'>
+						<img style='position:absolute;top:20%;left:90%;vertical-align:top;width:10%;height:1em' src='resources/0ad/bar/titlebar_right.png'>
 					</td></tr>
-					<tr><td>Survivor</td><td>
-						<span style='position:relative;vertical-align:middle;'>
-						<img style='position:absolute;top:0px;left:0px;vertical-align:top;width:30px;height:30px' src='resources/0ad/bar/titlebar_left.png'>
-						<img style='position:absolute;top:0px;left:30px;vertical-align:top;width:300px;height:30px' src='resources/0ad/bar/titlebar_middle.png'>
-						<img style='position:absolute;top:0px;left:330px;vertical-align:top;width:30px;height:30px' src='resources/0ad/bar/titlebar_right.png'>
-						</span>
+					<tr style='position:relative;top:0%;left:0%;text-align:right;virtical-align:middle;width:100%;'>
+					<td style='padding:0.3em;'>Survivor</td>
+					<td style='position:relative;top:0%;left:0%;vertical-align:middle;width:100%;'>
+						<img style='position:absolute;top:20%;left:0%;vertical-align:top;width:10%;height:1em' src='resources/0ad/bar/titlebar_left.png'>
+						<img style='position:absolute;top:20%;left:10%;vertical-align:top;width:80%;height:1em' src='resources/0ad/bar/titlebar_middle.png'>
+						<img style='position:absolute;top:20%;left:90%;vertical-align:top;width:10%;height:1em' src='resources/0ad/bar/titlebar_right.png'>
 					</td></tr>
-					<tr><td>Warrior</td><td>
-						<span style='position:relative;vertical-align:middle;'>
-						<img style='position:absolute;top:0px;left:0px;vertical-align:top;width:30px;height:30px' src='resources/0ad/bar/titlebar_left.png'>
-						<img style='position:absolute;top:0px;left:30px;vertical-align:top;width:300px;height:30px' src='resources/0ad/bar/titlebar_middle.png'>
-						<img style='position:absolute;top:0px;left:330px;vertical-align:top;width:30px;height:30px' src='resources/0ad/bar/titlebar_right.png'>
-						</span>
+					<tr style='position:relative;top:0%;left:0%;text-align:right;virtical-align:middle;width:100%;'>
+					<td style='padding:0.3em;'>Warrior</td>
+					<td style='position:relative;top:0%;left:0%;vertical-align:middle;width:100%;'>
+						<img style='position:absolute;top:20%;left:0%;vertical-align:top;width:10%;height:1em' src='resources/0ad/bar/titlebar_left.png'>
+						<img style='position:absolute;top:20%;left:10%;vertical-align:top;width:80%;height:1em' src='resources/0ad/bar/titlebar_middle.png'>
+						<img style='position:absolute;top:20%;left:90%;vertical-align:top;width:10%;height:1em' src='resources/0ad/bar/titlebar_right.png'>
 					</td></tr>
 					</table>
 				</div>
@@ -129,30 +119,29 @@
 
 
 
-			<div id='missionScroll' style='position:absolute;bottom:0px;right:0px'>
-				<img style='vertical-align:top;width:800px;height:400px' src='resources/img/Scroll_Paper_PNG_Image.png'>
-				<div id='missionContent' style='position:absolute;bottom:50px;right:150px;width:500px;height:280px'>
-					<div id='mPhoto' style='position:absolute;top:0px;right:0px;width:250px;height:100px;text-align:center'>
-					<img style='vertical-align:top;width:250px;height:125px' src='resources/img/grant-park.png'>	
+			<div id='missionScroll' style='position:absolute;bottom:0%;right:0%;width:60%;height:60%'>
+				<img style='position:absolute;bottom:0%;right:0%;width:100%;height:100%' src='resources/img/Scroll_Paper_PNG_Image.png'>
+				<div id='missionContent' style='position:absolute;bottom:10%;right:20%;width:60%;height:75%'>
+					<div id='mPhoto' style='position:absolute;top:0%;right:0%;width:60%;height:40%;text-align:right'>
+					<img style='vertical-align:top;height:100%' src='resources/img/grant-park.png'>	
 					</div>
-					<span style='text-align:right; vertical-align:top; height:60px'>
-					<b><font face="Rock Salt" color="#AA0000" id='mCategory'> Agent Mission:</font></b><br>
-					<b><font color="#000000" id='mTitle'> Locate Secret Hideout</font></b><br>
-					<font color="#000000" style="font-size:80%;">
-					Duration: <span id='mDuration'> 20 min</span><br>
-					Experience: <span id='mExp'> 3,000 xp</span></font>
-					</span>
-					<div id='missionDescription' style='position:absolute;bottom:0;left:0px;width:100%;height:50%'>					
-<!-- 					<font face="Shadows Into Light" color="#000000"> 
- -->					<font color="#000000" id='mDesc'> 
+					<div style='text-align:left; vertical-align:top; height:40%; width:40%;'>
+						<b><font face="Rock Salt" color="#AA0000" id='mCategory'> Agent Mission:</font></b><br>
+						<b><font color="#000000" id='mTitle'> Locate Secret Hideout</font></b><br>
+						<font color="#000000" style="font-size:80%;">
+						Duration: <span id='mDuration'> 20 min</span><br>
+						Experience: <span id='mExp'> 3,000 xp</span></font>
+					</div>
+					<div id='missionDescription' style='position:absolute;bottom:20%;left:0%;width:100%;height:35%'>					
+						<font color="#000000" id='mDesc'> 
 						Ninja Alliance intelligence reports that there is 
 						a secret terrorist hideout near your location.  
 						Our agents discovered this photo of the hideout.
 						Locate the hideout and report its whereabouts.					
 						</font>					
 					</div>
-					<div id='waxSeal' style='position:absolute;bottom:-20px;left:0px;width:100%;text-align:center;vertical-align:middle;'>
-						<img style='vertical-align:middle;width:150px;height:100px;' src='resources/img/transparent-wax-red-4.png' onclick='actionClick()'>	
+					<div id='waxSeal' style='position:absolute;bottom:-1%;left:0%;width:100%;height:30%;text-align:center;vertical-align:middle;'>
+						<img style='vertical-align:middle;height:100%;' src='resources/img/transparent-wax-red-4.png' onclick='actionClick()'>	
 						<div style='position:absolute;text-align:center; vertical-align:middle;top:42%;left:44%;' onclick='actionClick()'>
 							<font id='mAction'>Report</font>
 						</div>
@@ -160,13 +149,13 @@
 				</div>
 				
 			</div>
-			<div id='missions' style='position:absolute;bottom:0px;left:0px;width:40%;height:55%;text-align:center;'>
-				<div id='missionsTitle' style='position:absolute;top:0px;left:0px;text-align:center;width:100%;font-size:200%;'>
+			<div id='missions' style='position:absolute;bottom:0%;left:0%;width:40%;height:55%;text-align:center;'>
+				<div id='missionsTitle' style='position:absolute;top:0%;left:0%;text-align:center;width:100%;font-size:200%;'>
 					Missions
 				</div>
  				<div id='missionList' style='position:absolute;vertical-align:bottom;top:10%;left:10%;width:90%;height:100%;font-size:120%;text-align:left;'>
  					<br>
- 					<table cellpadding='10px'>
+ 					<table cellpadding='10em'>
 					<tr><td>1:</td><td  id='mi1' onclick="missionClick('mi1');">
 						Agent: locate secret hideout.
 					</td></tr>
@@ -185,11 +174,9 @@
 					</table>
 				</div>
 			</div>
-			<div id='errorLog' style='position:absolute;top:30%;left:10px;width:400px;height:50px;text-align:left;color:#ee0000;'>
+			<div id='errorLog' style='position:absolute;top:32%;left:1em;width:40%;height:20%;text-align:left;color:#ee0000;'>
 			Hello
 			</div>
 		</div>	
-		<div id='drawArea' style='z-index:-2'></div>
-		
 	</body>
 </html>
