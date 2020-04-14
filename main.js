@@ -1,9 +1,5 @@
 "use strict";
 
-var container;
-var ui, hud, game;
-
-
 function MissionHandler() {
 	var o = new BaseObject();
 	o.selectedMission = undefined;
@@ -26,7 +22,7 @@ function MissionHandler() {
 			mCategory: 'Scholar Mission',
 			mTitle: 'Sharpen Your Mind',
 			mDesc: 'Sharp mind is the hallmark of a master ninja.  Study math on Khan Academy to sharpen your mind.',
-			mPhoto: 'resources/img/ninja-study.png',					
+			mPhoto: 'resources/img/ninja-study2.png',					
 			mDuration: '45 min',
 			mExp: '6,000 xp',
 			mAction: 'Finish'
@@ -88,29 +84,19 @@ function MissionHandler() {
 	
 	return o;
 }
+var hud = undefined;
 var mh = undefined;
-function missionClick(mid) {
-	mh.handleMissionClick(mid);
-}
-function actionClick() {
-	mh.handleMissionAction();
-}
-
-function reportVersion() {
-	mh.log("version 6");
-};
+function missionClick(mid) { mh.handleMissionClick(mid); }
+function actionClick() { mh.handleMissionAction(); }
+function hudToggle(wid) { hud.toggleWin(wid); }
+function reportVersion() { mh.log("version 6"); }
 
 function init() {
 	mh = new MissionHandler();
+	hud = new Hud();
 	reportVersion();
 	missionClick('mi1');
+	hud.show();
+//	document.getElementById('alias').style.color='#00FF00';
+//	hud.resize();
 };
-
-
-
-//function init() {
-//	setupGui();	 //in HUD.js
-//	setupGame(); //in GameLogic.js
-//}
-//
-//init();

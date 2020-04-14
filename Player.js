@@ -1,7 +1,7 @@
 "use strict";
 
 function Player(params) {
-	var o = new BaseObject();
+	var o = new BaseObject(params);
 	
 	o.uiFields = ['alias', 'clan', 'gold', 'playerPortrait', 'emblem'];
 	o.params = { state: 'inProgress' };
