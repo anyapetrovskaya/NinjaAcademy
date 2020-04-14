@@ -3,8 +3,6 @@
 	<head>
 		<title>NinjaAcademy</title>
 		<meta charset="utf-8">
- 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-
  		<style>
 			@import url(//fonts.googleapis.com/css?family=Rock+Salt);
 /* 			@import url(//fonts.googleapis.com/css?family=Shadows+Into+Light);
@@ -56,13 +54,6 @@
 	 		<img style='position:absolute;top:0%;left:0%;width:100%;height:3%;' src='resources/0ad/top_bar.png'>
 		</div> 
 		
-		<div id='dock' style='visibility:visible; position:absolute; top:0%; left:0%; width:1.5em;height:100%;z-index:10; background-color:#f1c232; opacity:0.5'>
-	 		<img style='position:absolute;top:20%;left:10%;width:80%;' src='resources/img/nin-head-round.png' onclick="hudToggle('playerInfo')">
-	 		<img style='position:absolute;top:30%;left:10%;width:80%;' src='resources/img/study1.png' onclick="hudToggle('professions')">
-	 		<img style='position:absolute;top:40%;left:10%;width:80%;' src='resources/img/trashcan2.png' onclick="hudToggle('missionScroll')">
-	 		<img style='position:absolute;top:50%;left:10%;width:80%;' src='resources/img/cross-swords.png' onclick="hudToggle('missions')">
-		</div>
- 
  		<div id='hud' style='visibility:hidden; position:absolute; top:3%; left:3%; width:97%;height:97%;'>
  		
  				
@@ -135,41 +126,6 @@
 				</div>				
 			</div>
 
-
-
-			<div id='missionScroll' style='position:absolute;bottom:0%;right:0%;width:42em;height:27em'>
-				<img style='position:absolute;bottom:0%;right:0%;width:100%;height:100%' src='resources/img/Scroll_Paper_PNG_Image.png'>
-				<div id='missionContent' style='position:absolute;bottom:10%;right:20%;width:60%;height:75%'>
-					<div id='mPhoto' style='position:absolute;top:0%;right:0%;width:60%;height:40%;text-align:right'>
-					<img style='vertical-align:top;height:100%' src='resources/img/grant-park.png'>	
-					</div>
-					<div style='text-align:left; vertical-align:top; height:40%; width:40%;'>
-						<b><font face="Rock Salt" color="#AA0000" id='mCategory'> Agent Mission:</font></b><br>
-						<b><font color="#000000" id='mTitle'> Locate Secret Hideout</font></b><br>
-						<font color="#000000" style="font-size:80%;">
-						Duration: <span id='mDuration'> 20 min</span><br>
-						Experience: <span id='mExp'> 3,000 xp</span></font>
-					</div>
-					<div id='missionDescription' style='position:absolute;bottom:20%;left:0%;width:100%;height:35%'>					
-						<font color="#000000" id='mDesc'> 
-						Ninja Alliance intelligence reports that there is 
-						a secret terrorist hideout near your location.  
-						Our agents discovered this photo of the hideout.
-						Locate the hideout and report its whereabouts.					
-						</font>					
-					</div>
-					<div id='waxSeal' style='position:absolute;bottom:-1%;left:0%;width:100%;height:30%;text-align:center;vertical-align:middle;'>
-						<img style='vertical-align:middle;height:100%;' src='resources/img/transparent-wax-red-4.png' onclick='actionClick()'>	
-						<div style='position:absolute;text-align:center; vertical-align:middle;top:42%;left:44%;' onclick='actionClick()'>
-							<font id='mAction'>Report</font>
-						</div>
-					</div>
-				</div>
-				<div id='scrollX' style='position:absolute;top:2%;right:13%;width:1em;height:1em' onclick="hudToggle('missionScroll')" >
-				<img style='position:absolute;bottom:0%;right:0%;width:100%;height:100%' src='resources/img/darkCross.png'>
-				</div>
-			</div>
-			
 			<div id='missions' style='position:absolute;bottom:0%;left:0%;width:30em;height:24em;text-align:center;'>
 				<div id='missionsTitle' style='position:absolute;top:0%;left:0%;text-align:center;width:100%;font-size:200%;'>
 					Missions
@@ -198,6 +154,41 @@
 				<img style='position:absolute;bottom:0%;right:0%;width:100%;height:100%' src='resources/img/lightCross.png'>
 				</div>				
 			</div>
+
+
+			<div id='missionScroll' style='position:absolute;bottom:1em;right:1em;width:30em;height:20em'>
+				<img style='position:absolute;bottom:0%;right:0%;width:100%;height:100%' src='resources/img/scroll3-1.png'>
+				<div id='missionContent' style='position:absolute;bottom:0%;right:10%;width:80%;height:88%;'>
+					<div id='mPhoto' style='position:absolute;top:0%;right:0%;width:50%;height:45%;text-align:center'>
+					<img style='vertical-align:top;height:100%' src='resources/img/grant-park.png'>	
+					</div>
+					<div id='missionHeader' style='text-align:left; vertical-align:top; height:50%; width:50%;'>
+						<b><font face="Rock Salt" color="#AA0000" id='mCategory'> Agent Mission:</font></b><br>
+						<b><font color="#000000" id='mTitle'> Locate Secret Hideout</font></b><br>
+						<font color="#000000" style="font-size:80%;">
+						Duration: <span id='mDuration'> 20 min</span><br>
+						Experience: <span id='mExp'> 3,000 xp</span></font>
+					</div>
+					<div id='missionDescription' style='position:absolute;bottom:15%;left:0%;width:100%;height:35%;'>
+						<font color="#000000" id='mDesc'> 
+						Ninja Alliance intelligence reports that there is 
+						a secret terrorist hideout near your location.  
+						Our agents discovered this photo of the hideout.
+						Locate the hideout and report its whereabouts.					
+						</font>					
+					</div>
+					<div id='waxSeal' style='position:absolute;bottom:0%;right:0%;width:100%;height:5.5em;'>
+						<img style='position:absolute;bottom:0%;right:0%;height:100%;' src='resources/img/wax-seal3.png' onclick='actionClick()'>	
+						<div style='position:absolute;bottom:1.5em;right:0.6em;' onclick='actionClick()'>
+							<font id='mAction'>Report</font>
+						</div>
+					</div>
+				</div>
+				<div id='scrollX' style='position:absolute;top:2.5%;right:3%;width:1em;height:1em' onclick="hudToggle('missionScroll')" >
+				<img style='position:absolute;bottom:0%;right:0%;width:100%;height:100%' src='resources/img/darkCross.png'>
+				</div>
+			</div>
+			
 			
 			<div id='logWindow' style='position:absolute;top:32%;left:0%;width:30em;height:10em;text-align:left;color:#ee0000;'>
 				<span id='errorLog' style='position:absolute;top:0%;left:1em;width:90%;'>Hello</span>
@@ -206,5 +197,13 @@
 				</div>				
 			</div>
 		</div>	
+		
+		<div id='dock' style='visibility:visible; position:absolute; top:0%; left:0%; width:1.5em;height:100%;background-color:#f1c232; opacity:0.5'>
+	 		<img style='position:absolute;top:20%;left:10%;width:80%;' src='resources/img/nin-head-round.png' onclick="hudToggle('playerInfo')">
+	 		<img style='position:absolute;top:30%;left:10%;width:80%;' src='resources/img/study1.png' onclick="hudToggle('professions')">
+	 		<img style='position:absolute;top:40%;left:10%;width:80%;' src='resources/img/trashcan2.png' onclick="hudToggle('missionScroll')">
+	 		<img style='position:absolute;top:50%;left:10%;width:80%;' src='resources/img/cross-swords.png' onclick="hudToggle('missions')">
+		</div>
+		
 	</body>
 </html>
