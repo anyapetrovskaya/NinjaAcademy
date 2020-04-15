@@ -3,19 +3,37 @@
 function MissionHandler() {
 	var o = new BaseObject();
 	o.selectedMission = undefined;
+//	let msg = 'Ninja Alliance intelligence reports that there is a secret terrorist hideout near your location. Our agents discovered this photo of the hideout. Locate the hideout and report its whereabouts.';
 	o.missions = {
-		mi1: new AgentMission({ 
-			mid: 1,
+		mi6: new AgentMission({ 
+			mid: 6,
 			mShort: 'Agent: locate secret hideout.',
 			mCategory: 'Agent Mission',
 			mTitle: 'Locate Secret Hideout',
 			mDesc: 'Ninja Alliance intelligence reports that there is a secret terrorist hideout near your location. Our agents discovered this photo of the hideout. Locate the hideout and report its whereabouts.',
+//			mDesc: msg + msg + msg + msg,
 			mPhoto: 'resources/img/grant-park.png',
 			mCoord: { lat: 37.345749, lon: -122.070328 },
 			thresh: 100,
-			msg: '',
+			msg: 'Click "Report" if you think you have found the hideout.',
+			successMsg: "Great work.  You have located the secret hideout!",
 			mDuration: '15 min',
 			mExp: '2,000 xp',
+			mAction: 'Report'
+			}),
+		mi1: new AgentMission({ 
+			mid: 1,
+			mShort: 'Agent: find secret meeting point.',
+			mCategory: 'Agent Mission',
+			mTitle: 'Find Secret Meeting Point',
+			mDesc: 'Ninja Alliance has been tipped off about a new secret terrorist meeting point near your location. Our intelligence came across this photo of the location. Locate the meeting point and report its whereabouts.',
+			mPhoto: 'resources/img/farmLoc.jpg',
+			mCoord: { lat: 37.332592, lon: -122.099542 },
+			thresh: 100,
+			msg: 'Click "Report" if you think you have found the meeting place.',
+			successMsg: "Great work.  You found the secret meeting place!",
+			mDuration: '60 min',
+			mExp: '5,000 xp',
 			mAction: 'Report'
 			}),
 		mi2: new Mission({ 	
@@ -63,6 +81,7 @@ function MissionHandler() {
 			mAction: 'Finish'
 		})
 	};
+	for (let k of Object.keys(o.missions)) o.missions[k].setElement(k, o.missions[k].params.mShort);
 	o.handleMissionClick = function(mid) {
 		if (o.missions[mid] == undefined) {
 			alert("no such mid="+mid);

@@ -16,7 +16,8 @@ function Mission(params) {
 	o.completeMission = function() {
 		o.params.state = 'complete';
 		o.params.mAction = 'Info';
-		o.params.completedOn = new Date(Date.now());
+		o.params.completedOn = (new Date(Date.now())).toLocaleString();
+		o.params.completedTs = Date.now();
 		o.updateUi();
 	}
 	o.showInfoWindow = function() {
@@ -30,11 +31,10 @@ function Mission(params) {
 //frameid.parentNode.removeChild(frameid);
 function AgentMission(params) {
 	var o = new Mission(params);
-	o.params.msg = 'Click "Report" if you think you have found the hideout.';
 	o.fillMissionInfo = function() {
 		let w = o.getElement('mInfo');
 		if (o.params.state == 'complete') {
-			w.innerHTML = `${o.params.msg} <br><br> You have completed this mission on ${o.params.completedOn}.`;
+			w.innerHTML = `${o.params.msg} <br><br> Completed: ${o.params.completedOn}.`;
 		} else {
 			w.innerHTML = `${o.params.msg} `;
 		}
@@ -62,7 +62,7 @@ function AgentMission(params) {
 		o.log(`distance ${d.toFixed(0)} meters with ${crd.accuracy} meters accuracy.`);
 		
 		if (d < o.params.thresh) {
-			o.params.msg = "Great work.  You have located the secret hideout!";
+			o.params.msg = o.params.successMsg;
 			o.completeMission();
 		} else {
 			o.params.msg = "Keep looking.  This does not seem to be the right place.";
@@ -75,10 +75,10 @@ function AgentMission(params) {
 		o.log(s);
 		o.params.msg = "unable to determine your location";
 		o.showInfoWindow();
-//		
-//		o.params.msg = "Great work.  You have located the secret hideout!";
-//		o.completeMission();
-//
+		
+		o.params.msg = o.params.successMsg;
+		o.completeMission();
+
 	};
 	o.geoOpt = {
 		  enableHighAccuracy: true,
