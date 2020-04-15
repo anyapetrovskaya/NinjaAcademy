@@ -66,6 +66,7 @@ function AgentMission(params) {
 		} else {
 			o.params.msg = "Keep looking.  This does not seem to be the right place.";
 		}
+		o.showInfoWindow();
 	};
 	o.handleGeoError = function(err) {
 		let s = `geo error(${err.code}): ${err.message}`;
