@@ -30,6 +30,7 @@ function Mission(params) {
 //frameid.parentNode.removeChild(frameid);
 function AgentMission(params) {
 	var o = new Mission(params);
+	o.params.msg = 'Click "Report" if you think you have found the hideout.';
 	o.fillMissionInfo = function() {
 		let w = o.getElement('mInfo');
 		if (o.params.state == 'complete') {
