@@ -12,6 +12,8 @@ function MissionHandler() {
 			mDesc: 'Ninja Alliance intelligence reports that there is a secret terrorist hideout near your location. Our agents discovered this photo of the hideout. Locate the hideout and report its whereabouts.',
 			mPhoto: 'resources/img/grant-park.png',
 			mCoord: { lat: 37.345749, lon: -122.070328 },
+			thresh: 100,
+			msg: '',
 			mDuration: '15 min',
 			mExp: '2,000 xp',
 			mAction: 'Report'

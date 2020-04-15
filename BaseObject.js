@@ -18,6 +18,7 @@ function BaseObject(params) {
 		o.setElement(eid, s);
 	};	
 	o.fieldFormat = {};
+	o.getElement = function(eid) { return document.getElementById(eid); }
 	o.setElement = function(eid, s) {
 		if (!document.getElementById(eid)) return;
 		document.getElementById(eid).innerHTML = s;

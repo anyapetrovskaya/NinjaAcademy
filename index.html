@@ -66,9 +66,9 @@
  				</div>
 				<div id='playerStats' style='position:absolute;vertical-align:middle;text-align:left;top:0%;left:67%;width:33%;height:100%'>
  					<table cellpadding='5em'>
-					<tr><td>Name:</td><td  id='alias' style='text-align:left;color:#ee0000;'>Angel</td></tr>
-					<tr><td>Clan:</td><td id='clan' style='text-align:left;color:#ee0000;'>Bloodfang</td></tr>
-					<tr><td>Gold:</td><td id='gold' style='text-align:left;color:#ee0000;'>33,567</td></tr>
+					<tr><td>Name:</td><td  id='alias' style='text-align:left;color:#bb0000;'>Angel</td></tr>
+					<tr><td>Clan:</td><td id='clan' style='text-align:left;color:#bb0000;'>Bloodfang</td></tr>
+					<tr><td>Gold:</td><td id='gold' style='text-align:left;color:#bb0000;'>33,567</td></tr>
 					</table>
 				</div>
 				<div id='playerInfoX' style='position:absolute;top:0%;right:0%;width:1em;height:1em' onclick="hudToggle('playerInfo')" >
@@ -176,10 +176,12 @@
 						Our agents discovered this photo of the hideout.
 						Locate the hideout and report its whereabouts.					
 						</font>					
+						<img id='mComplete' style='position:absolute;bottom:0%;right:20%;width:60%;height:100%' src='resources/img/complete.png'>
 					</div>
 					<div id='waxSeal' style='position:absolute;bottom:0%;right:0%;width:100%;height:5.5em;'>
-						<img style='position:absolute;bottom:0%;right:0%;height:100%;' src='resources/img/wax-seal3.png' onclick='actionClick()'>	
-						<div style='position:absolute;bottom:1.5em;right:0.7em;' onclick='actionClick()'>
+						<img style='position:absolute;bottom:0%;right:6em;height:100%;' src='resources/img/wax-tie2.png'>	
+						<img style='position:absolute;bottom:0%;right:0%;height:90%;' src='resources/img/wax-dragon.png' onclick='actionClick()'>	
+						<div style='position:absolute;bottom:1.6em;right:0em;width:7em;vertical-align:middle;text-align:center;' onclick='actionClick()'>
 							<font id='mAction'>Report</font>
 						</div>
 					</div>
@@ -189,8 +191,17 @@
 				</div>
 			</div>
 			
+			<div id='missionInfo' style='visibility:hidden;position:absolute;top:30%;left:30%;width:30em;height:22em;background-color:#330000;'>
+				<div id='mInfo' style='position:absolute;top:1em;right:5%;width:90%;height:90%' >
+				You successfully located the hideout!<br>
+				Rate this mission: *****
+				</div>				
+				<div id='detailX' style='position:absolute;top:0%;right:0%;width:1em;height:1em' onclick="hudToggle('missionInfo')" >
+				<img style='position:absolute;bottom:0%;right:0%;width:100%;height:100%' src='resources/img/lightCross.png'>
+				</div>				
+			</div>			
 			
-			<div id='logWindow' style='position:absolute;bottom:0%;left:0%;width:30em;height:2em;text-align:left;color:#ee0000;'>
+			<div id='logWindow' style='position:absolute;bottom:0%;left:0%;width:30em;height:2em;text-align:left;color:#bb0000;'>
 				<span id='errorLog' style='position:absolute;top:0%;left:1em;width:90%;'>Hello</span>
 				<div id='logWindowX' style='position:absolute;top:0%;right:0%;width:1em;height:1em;' onclick="hudToggle('logWindow')" >
 				<img style='position:absolute;bottom:0%;right:0%;width:100%;height:100%' src='resources/img/lightCross.png'>
