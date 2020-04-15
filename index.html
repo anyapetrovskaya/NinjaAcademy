@@ -23,7 +23,7 @@
 				font-family: Bradley;
 				background-color: #000000;
 				margin: 0px;
-				overflow: hidden;
+				overflow: auto;
 				color: #f1c232;
 			}
 
@@ -54,17 +54,17 @@
 	 		<img style='position:absolute;top:0%;left:0%;width:100%;height:3%;' src='resources/0ad/top_bar.png'>
 		</div> 
 		
- 		<div id='hud' style='visibility:hidden; position:absolute; top:3%; left:3%; width:97%;height:97%;'>
+ 		<div id='hud' style='visibility:hidden; position:absolute; top:3%; left:3%; width:97%;height:97%;overflow: auto;'>
  		
  				
-			<div id='playerInfo' style='position:absolute;top:0%;left:0%;width:30em;height:20em;font-size:120%;vertical-align:top;'>
+			<div id='playerInfo' style='position:absolute;top:0%;left:0%;width:30em;height:20em;font-size:120%;vertical-align:top;overflow: auto;'>
 				<div id='emblem' style='position:absolute;top:0%;left:0%;width:16%;height:100%;'>
 					<img style='vertical-align:middle;width:100%' src='resources/img/emblemTiger4.png'>
 				</div>			
 				<div id='playerPortrait' style='position:absolute;top:0%;left:16%;width:50%;'>
  					<img style='vertical-align:middle;width:100%' src='resources/img/girl-ninja-flip.jpg'>
  				</div>
-				<div id='playerStats' style='position:absolute;vertical-align:middle;text-align:left;top:0%;left:67%;width:33%;height:100%'>
+				<div id='playerStats' style='position:absolute;vertical-align:middle;text-align:left;top:0%;left:67%;width:33%;height:100%;overflow: auto;'>
  					<table cellpadding='5em'>
 					<tr><td>Name:</td><td  id='alias' style='text-align:left;color:#bb0000;'>Angel</td></tr>
 					<tr><td>Clan:</td><td id='clan' style='text-align:left;color:#bb0000;'>Bloodfang</td></tr>
@@ -78,7 +78,7 @@
 			
 			
 
-			<div id='professions' style='position:absolute;top:0%;right:1em;width:25em;height:20em;font-size:120%;text-align:center;'>
+			<div id='professions' style='position:absolute;top:0%;right:1em;width:25em;height:20em;font-size:120%;text-align:center;overflow: auto;'>
 				<div id='professionsTitle' style='position:absolute;top:0%;left:0%;width:100%;'>
  					Professions
  				</div>
@@ -126,7 +126,7 @@
 				</div>				
 			</div>
 
-			<div id='missions' style='position:absolute;bottom:0%;left:0%;width:30em;height:22em;text-align:center;'>
+			<div id='missions' style='position:absolute;bottom:0%;left:0%;width:30em;height:22em;text-align:center;overflow: auto;'>
 				<div id='missionsTitle' style='position:absolute;top:0%;left:0%;text-align:center;width:100%;font-size:200%;'>
 					Missions
 				</div>
@@ -158,18 +158,18 @@
 
 			<div id='missionScroll' style='position:absolute;bottom:1em;right:1em;width:30em;height:22em'>
 				<img style='position:absolute;bottom:0%;right:0%;width:100%;height:100%' src='resources/img/scroll3-1.png'>
-				<div id='missionContent' style='position:absolute;bottom:0%;right:10%;width:80%;height:88%;'>
+				<div id='missionContent' style='position:absolute;bottom:0%;right:10%;width:80%;height:88%;overflow: auto;'>
 					<div id='mPhoto' style='position:absolute;top:0%;right:0%;width:50%;height:40%;text-align:center'>
-					<img style='vertical-align:top;height:100%' src='resources/img/grant-park.png'>	
+					<img style='vertical-align:top;height:100%;overflow: auto;' src='resources/img/grant-park.png'>	
 					</div>
-					<div id='missionHeader' style='text-align:left; vertical-align:top; height:50%; width:50%;'>
+					<div id='missionHeader' style='text-align:left; vertical-align:top; height:50%; width:50%;overflow: auto;'>
 						<b><font face="Rock Salt" color="#AA0000" id='mCategory'> Agent Mission:</font></b><br>
 						<b><font color="#000000" id='mTitle'> Locate Secret Hideout</font></b><br>
 						<font color="#000000" style="font-size:80%;">
 						Duration: <span id='mDuration'> 20 min</span><br>
 						Experience: <span id='mExp'> 3,000 xp</span></font>
 					</div>
-					<div id='missionDescription' style='position:absolute;bottom:15%;left:0%;width:100%;height:35%;'>
+					<div id='missionDescription' style='position:absolute;bottom:15%;left:0%;width:100%;height:35%;overflow: auto;'>
 						<font color="#000000" id='mDesc'> 
 						Ninja Alliance intelligence reports that there is 
 						a secret terrorist hideout near your location.  
@@ -192,7 +192,7 @@
 			</div>
 			
 			<div id='missionInfo' style='visibility:hidden;position:absolute;top:30%;left:30%;width:30em;height:22em;background-color:#330000;'>
-				<div id='mInfo' style='position:absolute;top:1em;right:5%;width:90%;height:90%' >
+				<div id='mInfo' style='position:absolute;top:1em;right:5%;width:90%;height:90%;overflow: auto;' >
 				You successfully located the hideout!<br>
 				Rate this mission: *****
 				</div>				
@@ -202,7 +202,7 @@
 			</div>			
 			
 			<div id='logWindow' style='position:absolute;bottom:0%;left:0%;width:30em;height:2em;text-align:left;color:#bb0000;'>
-				<span id='errorLog' style='position:absolute;top:0%;left:1em;width:90%;'>Hello</span>
+				<span id='errorLog' style='position:absolute;top:0%;left:1em;width:90%;overflow: auto;'>Hello</span>
 				<div id='logWindowX' style='position:absolute;top:0%;right:0%;width:1em;height:1em;' onclick="hudToggle('logWindow')" >
 				<img style='position:absolute;bottom:0%;right:0%;width:100%;height:100%' src='resources/img/lightCross.png'>
 				</div>				
