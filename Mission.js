@@ -93,22 +93,22 @@ function TimedHonorMission(params) {
 		if (o.params.startedOn) s += `<tr><td style='text-align:left'>started:</td><td> ${o.params.startedOn}</td></tr>`;
 		if (o.params.finishedOn) s += `<tr><td style='text-align:left'>finished:</td><td> ${o.params.finishedOn}</td></tr>`;
 		if (o.params.lastDuration) {
-			s += `<tr><td style='text-align:left'>duration:</td><td> ${o.params.lastDuration.toFixed(2)} s</td></tr>`;
-			s += `<tr><td style='text-align:left'>expected:</td><td> ${o.params.durationTs} s</td></tr>`;
+			s += `<tr><td style='text-align:left'>duration:</td><td> ${o.params.lastDuration.toFixed(0)}s</td></tr>`;
+			s += `<tr><td style='text-align:left'>expected:</td><td> ${o.params.durationTs}s</td></tr>`;
 		}
-		s += `</table><div id=${o.params.mid+'Button'}></div>`;
+		s += `</table>`;
 		o.setElement('mInfo', s);		
 		if (o.params.state != 'complete') {
-			let btn = o.getElement(o.params.mid+'Button');
+			let btn = makeHudElement({
+				bottom: '0em',
+				right: '0em',
+				padding: '0.5em 1em',
+				borderRadius: '1em',
+				border: 'medium solid #f1c232'
+			});
 			btn.innerHTML = o.params.state == 'init' ? 'Start' : 'Finish';
 			btn.onclick = o.params.state == 'init' ? o.handleStart : o.handleFinish;
-			btn.style.bottom = '0em';
-			btn.style.right = '0em';
-			btn.style.position = 'absolute';
-			btn.style.padding = '0.5em 1em';
-			btn.style.borderRadius = '1em';
-			btn.style.border = "medium solid #f1c232";
-//<input type="button" id="startButton" value="Start" onclick="start()"/>
+			o.getElement('mInfo').appendChild(btn);
 		}
 	}
 	o.handleAction = function() { o.showInfoWindow(); };

@@ -5,17 +5,17 @@ function makeHudElement(p, elt) {
 	if (p === undefined) p = {};
 	var defaults = {
 			position: 'absolute',
-			bottom: '0px',
-			right: '0px',
-			background: 'rgba(0,0,0,0.5)',
-			color: 'white',
-			width: '200px',
-			height: '200px',
+//			bottom: '0px',
+//			right: '0px',
+//			background: 'rgba(0,0,0,0.5)',
+//			color: 'white',
+//			width: '200px',
+//			height: '200px',
 	};
 	var ret = document.createElement(elt);
 	for (var n in defaults) ret.style[n] = defaults[n];
 	for (var n in p) ret.style[n] = p[n];
-	ret.onmousedown = ui.consumeMouse; //to prevent target picking/clearing when over hud element
+//	ret.onmousedown = ui.consumeMouse; //to prevent target picking/clearing when over hud element
 	return ret;
 }
 

@@ -49,4 +49,27 @@ function init() {
 	hud.show();
 //	document.getElementById('alias').style.color='#00FF00';
 //	hud.resize();
+//	let u = 'https://script.googleusercontent.com/macros/echo?user_content_key=BuRwif7fSAVTX4zBLnnoyfE-r-noqT-F-zYa6PLPb2tv8jw0-GpQWrKjVdKxttShgiHuXd4fJ8L9r7rebOMcfotX2PiYDZ_lm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnK4YLGXvUmbbZv0pYLzy6rqYbeem6w8CECb1tT332htTGX6YMEIzYtp7gOEsHTAoqg&lib=MPoQJZXF5XogNsv8mFUCfvNZGKez-M63M';
+//	hud.addWindow('missionInfo', false);
+////	let w = document.getElementById('mInfo');
+////	w.innerHTML = `<object data="${u}" type="text/html">hello</object>`;
+//	hud.windows.missionInfo.show();
+//
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
