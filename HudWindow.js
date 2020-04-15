@@ -27,7 +27,6 @@ function HudElement(params) {
 		o.params.visible = !o.params.visible;
 		let eid = o.params.eid;
 		o.dom.style.visibility = o.params.visible ? 'visible' : 'hidden';
-		console.log(`toggle ${eid} to `+ o.dom.style.visibility);
 	}
 	o.show = function() {
 		o.params.visible = true;
