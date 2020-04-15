@@ -76,8 +76,8 @@ function AgentMission(params) {
 		o.params.msg = "unable to determine your location";
 		o.showInfoWindow();
 		
-		o.params.msg = o.params.successMsg;
-		o.completeMission();
+//		o.params.msg = o.params.successMsg;
+//		o.completeMission();
 
 	};
 	o.geoOpt = {
